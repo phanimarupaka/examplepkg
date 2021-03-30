@@ -1,0 +1,8 @@
+apiVersion: apps/v1
+kind: MyKind
+metadata:
+  name: my-foo # kpt-set: ${appName}
+data:
+  replicas: 1 # kpt-set: ${replicas}
+  env: # kpt-set: ${environments}
+  - prod

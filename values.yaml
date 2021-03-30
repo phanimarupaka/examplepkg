@@ -1,0 +1,5 @@
+apiVersion: example.pkg.kpt/v0.1.0
+kind: ApplySetters
+---
+apiVersion: example.pkg.kpt/v0.1.0
+kind: SetNamespace

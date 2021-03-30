@@ -1,0 +1,34 @@
+apiVersion: kpt.dev/v1alpha2
+kind: Kptfile
+metadata:
+  name: ExamplePkg
+packageMetadata:
+  shortDescription: sample description
+pipeline:
+  mutators:
+  - image: gcr.io/kpt-fn/set-namespace:unstable
+    config: ./values.yaml
+  - image: gcr.io/kpt-fn/apply-setters:unstable
+    config: ./values.yaml
+extensions:
+  ApplySetters:
+    properties:
+      replicas:
+        type: integer
+        maximum: 5
+      appName:
+        type: string
+        pattern: my-(.*)
+        maxLength: 6
+      environments:
+        type: array
+        maxLength: 3
+        items:
+          type: string
+    required: ["replicas", "appName"]
+  SetNamespace:
+    properties:
+      namespace:
+        type: string
+        pattern: my-(.*)
+    required: ["namespace"]
