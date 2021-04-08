@@ -1,5 +1,6 @@
 apiVersion: example.pkg.kpt/v0.1.0
 kind: ApplySetters
 ---
+# second config
 apiVersion: example.pkg.kpt/v0.1.0
 kind: SetNamespace
